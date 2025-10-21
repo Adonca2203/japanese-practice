@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { KanaCharacter, QuizMode, Score } from '../types';
 import { hiraganaCharacters } from '../data/hiragana';
 import { katakanaCharacters } from '../data/katakana';
@@ -72,6 +72,20 @@ export function useKanaQuiz() {
     setScore({ correct: 0, total: 0 });
   }, [mode, getCharactersByMode]);
 
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight') {
+        handleNext();
+      } else if (e.key === 'ArrowLeft') {
+        handlePrevious();
+      } else if (e.key === 'Enter' && feedback !== null) {
+        handleNext();
+      }
+  };
+
+  window.addEventListener('keydown', handleKeyPress);
+  return () => window.removeEventListener('keydown', handleKeyPress);
+}, [handleNext, handlePrevious, feedback]);
   return {
     mode,
     characters,
