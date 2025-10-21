@@ -5,6 +5,7 @@ interface AnswerFormProps {
   userAnswer: string;
   feedback: 'correct' | 'incorrect' | null;
   character: KanaCharacter;
+  inputRef: React.RefObject<HTMLInputElement>;
   onAnswerChange: (answer: string) => void;
   onSubmit: (e: React.FormEvent) => void;
 }
@@ -13,12 +14,14 @@ export function AnswerForm({
   userAnswer, 
   feedback, 
   character,
+  inputRef,
   onAnswerChange, 
   onSubmit 
 }: AnswerFormProps) {
   return (
     <form onSubmit={onSubmit} className="mb-6">
       <input
+        ref={inputRef}
         type="text"
         value={userAnswer}
         onChange={(e) => onAnswerChange(e.target.value)}

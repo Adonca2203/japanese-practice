@@ -12,6 +12,7 @@ export default function App() {
     userAnswer,
     feedback,
     score,
+    inputRef,
     setUserAnswer,
     handleModeChange,
     handleSubmit,
@@ -44,6 +45,7 @@ export default function App() {
           userAnswer={userAnswer}
           feedback={feedback}
           character={characters[currentIndex]}
+          inputRef={inputRef as React.RefObject<HTMLInputElement>}
           onAnswerChange={setUserAnswer}
           onSubmit={handleSubmit}
         />

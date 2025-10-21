@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { KanaCharacter, QuizMode, Score } from '../types';
 import { hiraganaCharacters } from '../data/hiragana';
 import { katakanaCharacters } from '../data/katakana';
@@ -16,6 +16,7 @@ export function useKanaQuiz() {
     }
   }, []);
 
+  const inputRef = useRef<HTMLInputElement>(null);
   const [mode, setMode] = useState<QuizMode>('hiragana');
   const [characters, setCharacters] = useState<KanaCharacter[]>(() => 
     shuffleArray(hiraganaCharacters)
@@ -55,6 +56,7 @@ export function useKanaQuiz() {
     } else {
       setCurrentIndex(prev => prev + 1);
     }
+    setTimeout(() => inputRef.current?.focus(), 0);
   }, [currentIndex, characters.length, mode, getCharactersByMode]);
 
   const handlePrevious = useCallback(() => {
@@ -93,6 +95,7 @@ export function useKanaQuiz() {
     userAnswer,
     feedback,
     score,
+    inputRef,
     setUserAnswer,
     handleModeChange,
     handleSubmit,
