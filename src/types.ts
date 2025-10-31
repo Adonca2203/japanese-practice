@@ -3,7 +3,13 @@ export interface KanaCharacter {
   romaji: string;
 }
 
-export type QuizMode = 'hiragana' | 'katakana' | 'all';
+export interface VocabWord {
+  english: string;
+  hiragana: string;
+  kanji?: string;
+}
+
+export type QuizMode = 'hiragana' | 'katakana' | 'kana' | 'vocab';
 
 export interface Score {
   correct: number;

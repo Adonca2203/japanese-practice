@@ -14,7 +14,8 @@ export function ModeSelector({ mode, onModeChange }: ModeSelectorProps) {
     >
       <option value="hiragana">Hiragana</option>
       <option value="katakana">Katakana</option>
-      <option value="all">All (Hiragana + Katakana)</option>
+      <option value="kana">Kana (Hiragana + Katakana)</option>
+      <option value={"vocab"}>Vocab</option>
     </select>
   );
 }
