@@ -22,4 +22,12 @@ export const vocabWords: VocabWord[] = [
   { english: "Public Park", hiragana: "こうえん", kanji: "公園" },
   { english: "Spacious", hiragana: "ひろい", kanji: "広い" },
   { english: "He/Him", hiragana: "かれ", kanji: "彼" },
+  { english: "Famous", hiragana: "ゆうめい", kanji: "有名" },
+  { english: "Lively", hiragana: "げんき", kanji: "元気" },
+  { english: "Clothes", hiragana: "ふく", kanji: "服" },
+  { english: "Old (not person)", hiragana: "ふるい", kanji: "古い" },
+  { english: "Tuesday", hiragana: "かようび", kanji: "火曜日" },
+  { english: "Today", hiragana: "あした", kanji: "明日" },
+  { english: "Rain", hiragana: "あめ", kanji: "雨" },
+  { english: "Evening", hiragana: "ばん", kanji: "番" },
 ]
